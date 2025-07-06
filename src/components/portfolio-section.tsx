@@ -103,7 +103,7 @@ export default function PortfolioSection() {
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative aspect-[6/3] group cursor-pointer overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-700"
+              className="relative aspect-[6/3] group cursor-pointer overflow-hidden rounded-md shadow-lg hover:shadow-2xl transition-all duration-700"
             >
               <Image
                 src={item.imageUrl}

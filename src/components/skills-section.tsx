@@ -47,8 +47,8 @@ export default function SkillsSection() {
           <div className="space-y-10">
             {skills.map((skill, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="flex items-start space-x-6 p-8 rounded-2xl bg-white/50 backdrop-blur-sm hover:bg-white/80 hover:shadow-xl transition-all duration-700 border border-gray-100/50">
-                  <div className="w-12 h-12 bg-gradient-to-br from-gray-900 to-gray-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500">
+                <div className="flex items-start space-x-6 p-6 rounded-2xl bg-white/50 backdrop-blur-sm hover:bg-white/80 hover:shadow-xl transition-all duration-700 border border-gray-100/50">
+                  <div className="w-10 h-10 p-2 bg-gradient-to-br from-gray-900 to-gray-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-500">
                     {skill.icon}
                   </div>
                   <div>
@@ -77,7 +77,7 @@ export default function SkillsSection() {
 
         <div className="relative">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-3xl blur-3xl rotate-6" />
-          <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative aspect-[6/7] rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src="/assets/hero.jpg"
               alt="hero"

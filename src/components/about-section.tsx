@@ -1,9 +1,9 @@
 export default function AboutSection() {
   return (
     <section id="about" className="py-32 bg-gradient-to-b from-gray-50/50 to-gray-100/30 px-8">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-5xl md:text-6xl font-thin mb-16 tracking-wide">About</h2>
-        <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-12 md:p-16 shadow-xl border border-gray-100/50">
+        <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-16 shadow-xl border border-gray-100/50">
           <blockquote className="text-2xl md:text-3xl font-light leading-relaxed mb-12 text-gray-800 italic">
             &quot;Design with logic. Build with clarity. Deliver with purpose.&quot;
           </blockquote>
