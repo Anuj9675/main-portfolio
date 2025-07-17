@@ -1,129 +1,138 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
 
 type Project = {
-  id: string
-  title: string
-  imageUrl: string
-  link: string
-}
+  id: string;
+  title: string;
+  imageUrl: string;
+  link: string;
+  description?: string;
+  skills?: string[];
+};
 
 const portfolioItems: Project[] = [
   {
     id: "1",
     title: "Dindyali Homestay",
     imageUrl: "/assets/Dindayali.png",
-    link: "https://dindyali-homestay.vercel.app"
+    link: "https://dindyali-homestay.vercel.app",
+    skills: ["Next.js", "TailwindCSS", "Parallax"],
+    description:
+      "A visually engaging website for a homestay with smooth animations, responsive design, and a modular layout to showcase rooms and reviews.",
   },
   {
     id: "2",
     title: "Studio Website",
     imageUrl: "/assets/Studio.png",
-    link: "https://studio-sigma-nine.vercel.app"
+    link: "https://studio-sigma-nine.vercel.app",
+    skills: ["Next.js", "TailwindCSS"],
+    description:
+      "Built for a photography studio to present services and portfolio using full-screen layouts, carousels, and custom-designed sections.",
   },
-  
   {
     id: "3",
     title: "Photo Gallery Site",
     imageUrl: "/assets/PhotoGallery.png",
-    link: "https://photostudio-kappa.vercel.app/"
+    link: "https://photostudio-kappa.vercel.app/",
+    skills: ["React", "TailwindCSS"],
+    description:
+      "Responsive and minimalist gallery site for showcasing high-quality images.",
   },
   {
     id: "4",
     title: "Octa Dashboard",
     imageUrl: "/assets/Octa-tan.png",
-    link: "https://octa-ten.vercel.app/"
+    link: "https://octa-ten.vercel.app/",
+    skills: ["Next.js", "TailwindCSS"],
+    description:
+      "A modern dashboard for managing events, schedules, and tasks with animated UI and a clean layout.",
   },
-  {
-    id: "5",
-    title: "Bedwood Furnishing",
-    imageUrl: "/assets/Bedwood.png",
-    link: "https://bedwoodfurnishing.com"
-  },
-  {
-    id: "6",
-    title: "TOS Vert",
-    imageUrl: "/assets/Tos.png",
-    link: "https://tos-vert.vercel.app"
-  },
-  {
-    id: "7",
-    title: "Taxi Sanchalak",
-    imageUrl: "/assets/Taxi.png",
-    link: "https://taxisanchalak.vercel.app"
-  },
-  {
-    id: "8",
-    title: "Meeting Scheduler",
-    imageUrl: "/assets/MeetingScheduler.png",
-    link: "https://meeting-scheduler-octa.vercel.app"
-  },
-  {
-    id: "9",
-    title: "Gamers Platform",
-    imageUrl: "/assets/MOONLITYT.png",
-    link: "https://moonlityt.vercel.app"
-  },
-  {
-    id: "10",
-    title: "FoodSite App",
-    imageUrl: "/assets/Food.png",
-    link: "https://foodsite-app.vercel.app"
-  },
-  {
-    id: "11",
-    title: "Animal Welfare",
-    imageUrl: "/assets/Welfare.png",
-    link: "https://animalwelfare.netlify.app"
-  },
-  {
-    id: "12",
-    title: "SeekMonk",
-    imageUrl: "/assets/Seekmonk.png",
-    link: "https://www.seekmonk.com"
-  },
-  
-]
-
+];
 
 export default function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-32 bg-gradient-to-b from-gray-50/30 to-white px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-thin mb-6 tracking-wide">Portfolio</h2>
-          <p className="text-lg font-light opacity-60">A curated collection of my finest work</p>
-        </div>
-        <div className="grid md:grid-cols-2  gap-8">
-          {portfolioItems.map((item, i) => (
-            <a
-              key={i}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative aspect-[6/3] group cursor-pointer overflow-hidden rounded-md shadow-lg hover:shadow-2xl transition-all duration-700"
-            >
-              <Image
-                src={item.imageUrl}
-                alt={item.title}
-                fill
-                className="object-cover transition-all duration-1000 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-700" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-light tracking-wider opacity-80 uppercase">Project</span>
-                  <ArrowRight className="h-4 w-4 opacity-60" />
+    <section id="portfolio" className="py-32 px-6 md:px-24 bg-white">
+      <div className="max-w-8xl mx-auto space-y-24">
+        <h2 className="text-5xl md:text-6xl font-thin mb-16 tracking-wide text-center">
+          My Portfolio
+        </h2>
+
+        {portfolioItems.map((item, i) => {
+          const isEven = i % 2 === 0;
+
+          const ContentBlock = (
+            <div className="w-full flex flex-col justify-center h-full px-4">
+              <p className="text-base tracking-widest text-gray-500 mb-4 uppercase">
+                Latest Work
+              </p>
+              <h3 className="text-5xl font-serif font-bold mb-6 text-gray-900">
+                {item.title}
+              </h3>
+
+              {item.skills && (
+                <div className="flex flex-wrap gap-3 mb-6">
+                  {item.skills.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="bg-gray-200 text-gray-800 text-base px-4 py-2 rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
-                <h3 className="text-xl font-light mb-1">{item.title}</h3>
-                <p className="text-sm font-light opacity-75">{new URL(item.link).hostname}</p>
+              )}
+
+              {item.description && (
+                <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                  {item.description}
+                </p>
+              )}
+
+              <div>
+                <Link
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 px-8 py-4 text-sm font-light tracking-wide bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300"
+                >
+                  Watch live
+                </Link>
               </div>
-            </a>
-          ))}
-        </div>
+            </div>
+          );
+
+          const ImageBlock = (
+            <div className="flex justify-center items-center h-full p-2">
+              <div className="aspect-square max-w-xl w-full overflow-hidden">
+                <Image
+                  src={item.imageUrl}
+                  alt={item.title}
+                  width={1000}
+                  height={1000}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          );
+
+          return (
+            <div
+              key={item.id}
+              className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+            >
+              {/* On mobile: Content always first. On desktop: alternate order */}
+              <div className={`${isEven ? "order-1 md:order-1" : "order-1 md:order-2"}`}>
+                {ContentBlock}
+              </div>
+              <div className={`${isEven ? "order-2 md:order-2" : "order-2 md:order-1"}`}>
+                {ImageBlock}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
-  )
+  );
 }

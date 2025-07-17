@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
       {/* Sticky Toggle Button */}
-      <div className="fixed top-6 right-6 z-50">
+      <div className="fixed top-6 left-6 z-50">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="w-12 h-12 bg-black/30 backdrop-blur-sm border border-white/20 rounded-full cursor-pointer flex items-center justify-center text-white hover:bg-black/50 transition-all duration-300"
