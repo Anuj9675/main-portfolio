@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   SiHtml5, SiCss3, SiJavascript, SiReact, SiNextdotjs, SiTailwindcss, SiReactquery, SiRecoil, SiGit, SiGithub, SiNpm, SiPostman
 } from "react-icons/si";
@@ -17,18 +18,30 @@ const skillsRow = [
   { name: "Postman", icon: <SiPostman className="h-5 w-5" /> },
 ];
 
-
-
-
+const marqueeVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 export default function AnimatedSkills() {
   return (
     <section id="skills" className="relative bg-black h-[80vh] flex items-center justify-center">
   <div className="w-full">
-    <h2 className="text-5xl md:text-6xl text-white font-thin mb-16 tracking-wide text-center">
-      What I work with
-    </h2>
-    <div className="flex flex-col items-center justify-center">
+    <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-6xl text-white font-thin mb-16 tracking-wide text-center"
+        >
+          What I work with
+        </motion.h2>
+    <motion.div className="flex flex-col items-center justify-center"
+    initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={0}
+              variants={marqueeVariants}>
       <div className="md:w-2/3 mx-auto px-4">
         {/* Row 1: Left to Right */}
         <div className="overflow-hidden whitespace-nowrap mb-6 group">
@@ -60,7 +73,7 @@ export default function AnimatedSkills() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   </div>
 </section>
 

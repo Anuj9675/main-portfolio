@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,68 +54,118 @@ const portfolioItems: Project[] = [
 
 export default function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-32 px-6 md:px-24 bg-white">
+    <section id="portfolio" className="py-32 px-6 md:px-24 bg-transparent">
       <div className="max-w-8xl mx-auto space-y-24">
-        <h2 className="text-5xl md:text-6xl font-thin mb-16 tracking-wide text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-5xl md:text-6xl font-thin mb-16 tracking-wide text-center"
+        >
           My Portfolio
-        </h2>
+        </motion.h2>
 
         {portfolioItems.map((item, i) => {
           const isEven = i % 2 === 0;
 
           const ContentBlock = (
-            <div className="w-full flex flex-col justify-center h-full px-4">
-              <p className="text-base tracking-widest text-gray-500 mb-4 uppercase">
+            <motion.div
+              key={item.id}
+              className="w-full flex flex-col justify-center h-full px-4"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+            >
+              <motion.p
+                className="text-gray-700 text-lg leading-relaxed mb-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
                 Latest Work
-              </p>
-              <h3 className="text-5xl font-serif font-bold mb-6 text-gray-900">
+              </motion.p>
+              <motion.h3
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-5xl font-serif font-bold mb-6 text-gray-900"
+              >
                 {item.title}
-              </h3>
+              </motion.h3>
 
               {item.skills && (
-                <div className="flex flex-wrap gap-3 mb-6">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                >
                   {item.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-gray-200 text-gray-800 text-base px-4 py-2 rounded-full"
+                      className="bg-gray-200 text-gray-800 text-base px-4 py-2 rounded-full "
                     >
                       {skill}
                     </span>
                   ))}
-                </div>
+                </motion.div>
               )}
 
               {item.description && (
-                <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                <motion.p
+                  className="text-gray-700 text-lg leading-relaxed my-4"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7 }}
+                >
                   {item.description}
-                </p>
+                </motion.p>
               )}
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7 }}
+              >
                 <Link
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block mt-4 px-8 py-4 text-sm font-light tracking-wide bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300"
+                  className="inline-block px-8 py-4 text-sm font-light tracking-wide bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300"
                 >
                   Watch live
                 </Link>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           );
 
           const ImageBlock = (
-            <div className="flex justify-center items-center h-full p-2">
-              <div className="aspect-square max-w-xl w-full overflow-hidden">
-                <Image
-                  src={item.imageUrl}
-                  alt={item.title}
-                  width={1000}
-                  height={1000}
-                  className="object-cover w-full h-full"
-                />
+            <motion.div
+              key={item.id}
+              className=""
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+            >
+              <div className="flex justify-center items-center h-full p-2">
+                <div className="aspect-square max-w-xl w-full overflow-hidden">
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.title}
+                    width={1000}
+                    height={1000}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
               </div>
-            </div>
+            </motion.div>
           );
 
           return (
@@ -123,10 +174,18 @@ export default function PortfolioSection() {
               className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
             >
               {/* On mobile: Content always first. On desktop: alternate order */}
-              <div className={`${isEven ? "order-1 md:order-1" : "order-1 md:order-2"}`}>
+              <div
+                className={`${
+                  isEven ? "order-1 md:order-1" : "order-1 md:order-2"
+                }`}
+              >
                 {ContentBlock}
               </div>
-              <div className={`${isEven ? "order-2 md:order-2" : "order-2 md:order-1"}`}>
+              <div
+                className={`${
+                  isEven ? "order-2 md:order-2" : "order-2 md:order-1"
+                }`}
+              >
                 {ImageBlock}
               </div>
             </div>

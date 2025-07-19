@@ -1,4 +1,4 @@
-
+import { motion } from "framer-motion";
 
 export default function ExperienceStepper() {
   const steps = [
@@ -26,38 +26,83 @@ export default function ExperienceStepper() {
   ];
 
   return (
-    <section id="experience" className="py-32 bg-white px-8">
+    <section id="experience" className="py-32 px-8">
+           {" "}
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl md:text-6xl font-thin py-8 tracking-wide text-center text-black">
-          Experience
-        </h2>
-        
+               {" "}
+        <motion.h2
+          className="text-5xl md:text-6xl font-thin py-8 tracking-wide text-center text-black"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+                    Experience        {" "}
+        </motion.h2>
+               {" "}
         <ol className="relative border-s border-gray-900 text-black">
+                   {" "}
           {steps.map((step, idx) => (
-            <li className="relative flex-1 start-8 top-0" key={idx}>
+            <motion.li
+              key={idx}
+              className="relative flex-1 start-8 top-0"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.2 }}
+            >
+                           {" "}
               <span className="absolute -start-12 top-0">
-                <span className="w-8 h-8 bg-gray-900 border border-gray-200 rounded-full flex justify-center items-center mr-3 text-sm  "/>
+                               {" "}
+                <span className="w-8 h-8 bg-gray-900 border border-gray-200 rounded-full flex justify-center items-center mr-3 text-sm  " />
+                             {" "}
               </span>
-
-              <div className="flex flex-col pb-8 ">
-                <span className="font-semibold text-2xl font-serif text-black -mt-1">{step.label}</span>
-                <span className="text-lg text-gray-700">{step.position}</span>
-                <span className="text-lg text-gray-500">{step.subLabel}</span>
-                <p className="text-xl text-gray-700 ">{step.description}</p>
+                           {" "}
+              <div className="flex flex-col pb-2 ">
+                               {" "}
+                <span className="font-semibold text-2xl font-serif text-black -mt-6">
+                  {step.label}
+                </span>
+                               {" "}
+                <span className="text-lg text-gray-700 -mt-6">
+                  {step.position}
+                </span>
+                               {" "}
+                <span className="text-lg text-gray-500 -mt-6">
+                  {step.subLabel}
+                </span>
+                               {" "}
+                <p className="text-xl text-gray-700 -mt-6">
+                  {step.description}
+                </p>
+                             {" "}
               </div>
-            </li>
+                         {" "}
+            </motion.li>
           ))}
+                 {" "}
         </ol>
-        <div className="mb-10 text-left">
+               {" "}
+        <motion.div
+          className="mb-10 text-left -mt-6"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+                   {" "}
           <a
             href="/assets/AnujResume.pdf"
             download
             className="inline-block px-8 py-4 text-sm font-light tracking-wide bg-black text-white rounded-full hover:bg-gray-800 transition-all duration-300"
           >
-            Download Resume
+                        Download Resume          {" "}
           </a>
-        </div>
+                 {" "}
+        </motion.div>
+             {" "}
       </div>
+         {" "}
     </section>
   );
 }
