@@ -32,7 +32,7 @@ export default function Navbar() {
           <div className="flex items-center justify-center min-h-screen p-6">
             <nav className="text-center">
               <ul className="space-y-8">
-                {["home", "about", "skills", "portfolio", "contact"].map((item) => (
+                {["home", "experience", "skills", "portfolio", "contact"].map((item) => (
                   <li key={item}>
                     <a
                       href={`#${item}`}

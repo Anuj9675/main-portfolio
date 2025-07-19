@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react";
 
-import AboutSection from "@/src/components/about-section";
 import { ContactSection } from "@/src/components/contact-section";
 import CursorEffect from "@/src/components/cursor-effect";
 import Footer from "@/src/components/footer";
 import HeroSection from "@/src/components/hero-section";
 import PortfolioSection from "@/src/components/portfolio-section";
 import SkillsSection from "@/src/components/skills-section";
+import ExperienceSection from "@/src/components/experience-section";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -28,7 +28,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black overflow-x-hidden">
       <CursorEffect position={mousePosition} />
       <HeroSection />
-      <AboutSection />
+      <ExperienceSection />
       <SkillsSection />
       <PortfolioSection />
       <ContactSection />
