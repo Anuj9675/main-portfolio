@@ -53,7 +53,7 @@ const portfolioItems: Project[] = [
   {
     id: "5",
     title: "Portfolio",
-    imageUrl: "/assets/Sanskar.png",
+    imageUrl: "/assets/sanskar.png",
     link: "https://jain-sanskar.vercel.app/",
     skills: ["Next.js", "TailwindCSS"],
     description:
