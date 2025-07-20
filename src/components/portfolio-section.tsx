@@ -50,6 +50,15 @@ const portfolioItems: Project[] = [
     description:
       "A modern dashboard for managing events, schedules, and tasks with animated UI and a clean layout.",
   },
+  {
+    id: "5",
+    title: "Portfolio",
+    imageUrl: "/assets/Sanskar.png",
+    link: "https://jain-sanskar.vercel.app/",
+    skills: ["Next.js", "TailwindCSS"],
+    description:
+      "A modern portfolio website showcasing my friend's work, skills, and projects with a clean and interactive design.",
+  },
 ];
 
 export default function PortfolioSection() {
