@@ -19,7 +19,7 @@ const portfolioItems: Project[] = [
     title: "Dindyali Homestay",
     imageUrl: "/assets/Dindyali.png",
     link: "https://dindyali.vercel.app/",
-    skills: ["Next.js", "TailwindCSS", "Parallax"],
+    skills: ["Next.js", "TailwindCSS", "Parallax, Framer Motion"],
     description:
       "A visually engaging website for a homestay with smooth animations, responsive design, and a modular layout to showcase rooms and reviews.",
   },
