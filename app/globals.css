@@ -5,6 +5,25 @@ html {
 }
 
 
+
+/* Hide scrollbar for Webkit browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* Hide scrollbar for Firefox */
+*{
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; 
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
