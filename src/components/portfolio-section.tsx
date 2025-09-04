@@ -16,12 +16,12 @@ type Project = {
 const portfolioItems: Project[] = [
   {
     id: "1",
-    title: "Dindyali Homestay",
-    imageUrl: "/assets/Dindyali.png",
-    link: "https://dindyali.vercel.app/",
-    skills: ["Next.js", "TailwindCSS", "Parallax", "Framer Motion"],
+    title: "Your Furniture",
+    imageUrl: "/assets/Furniture.png",
+    link: "https://yourfurniture.vercel.app/",
+    skills: ["React", "TailwindCSS"],
     description:
-      "A visually engaging website for a homestay with smooth animations, responsive design, and a modular layout to showcase rooms and reviews.",
+      "Developed the frontend of a modern furniture e-commerce site using React and TailwindCSS, focusing on smooth UI and seamless user experience.",
   },
   {
     id: "2",
@@ -43,21 +43,21 @@ const portfolioItems: Project[] = [
   },
   {
     id: "4",
-    title: "Octa Dashboard",
-    imageUrl: "/assets/Octa-tan.png",
-    link: "https://octa-ten.vercel.app/",
-    skills: ["Next.js", "TailwindCSS"],
+    title: "Seek Monk",
+    imageUrl: "/assets/Seekmonk.png",
+    link: "https://www.seekmonk.com",
+    skills: ["React", "TailwindCSS"],
     description:
-      "A modern dashboard for managing events, schedules, and tasks with animated UI and a clean layout.",
+      "SeekMonk is a privacy-focused search engine, built to offer secure, anonymous, and unbiased browsing",
   },
   {
     id: "5",
-    title: "Portfolio",
-    imageUrl: "/assets/sanskar.png",
-    link: "https://jain-sanskar.vercel.app/",
-    skills: ["Next.js", "TailwindCSS"],
+    title: "Dindyali Homestay",
+    imageUrl: "/assets/Dindyali.png",
+    link: "https://dindyali.vercel.app/",
+    skills: ["Next.js", "TailwindCSS", "Parallax", "Framer Motion"],
     description:
-      "A modern portfolio website showcasing my friend's work, skills, and projects with a clean and interactive design.",
+      "A visually engaging website for a homestay with smooth animations, responsive design, and a modular layout to showcase rooms and reviews.",
   },
 ];
 
@@ -116,7 +116,7 @@ export default function PortfolioSection() {
                   {item.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-gray-200 text-gray-800 text-base px-4 py-2 rounded-full "
+                      className=" bg-gray-200  text-gray-800 text-xs px-2 sm:px-4  py-1 sm:py-2 m-1 rounded-full  "
                     >
                       {skill}
                     </span>
